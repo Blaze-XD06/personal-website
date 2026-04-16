@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My website</title>
+
+        <style>
+            body {
+                background-color: black;
+                font-family: Roboto,Arial;
+                padding-top: 30px;
+            }
+
+            .name {
+                color: #39ff14;
+                font-weight: 700;
+                margin-right: 80px;
+                margin-left: 30px;
+            }
+
+            .short-cuts {
+                display: flex;
+                justify-items: space-between;
+            }
+
+            .short-cut {
+                color: white;
+                text-decoration: none;
+                width: 100px;
+                height: 20px;
+            }
+
+            .main-title {
+                grid-column: 1 / -1;
+                text-align: center;
+                color: #39ff14;
+                margin-bottom: 10px;
+                font-size: 32px;
+                font-weight: bold;
+            }
+
+            .expertise {
+                display: grid;
+                justify-content: center;
+                grid-template-columns: repeat(3, 250px);
+                gap: 50px;
+            }
+
+            .card {
+                color: white;
+                background-color: #0a0a0a;
+                height: 250px;
+                width: 240px;
+                padding: 10px;
+                font-size: large;
+                border: 1px solid #39ff14;
+            }
+
+            .card:hover {
+                box-shadow: 0 0 12px #39ff14;
+                transform: translateY(-5px);
+            }
+
+            .info {
+                margin-top: 20px;
+                margin-left: 15px;
+            }
+
+            .work {
+                display: grid;
+                grid-template-columns: repeat(3, 250px);
+                column-gap: 60px;
+                row-gap: 30px;
+                justify-content: center;
+            }
+
+            .mini-game {
+                color: white;
+                border: 1px solid #39ff14;
+                height: 150px;
+                width: 250px;
+            }
+
+            .mini-game:hover {
+                box-shadow: 0 0 12px #39ff14;
+                transform: translateY(5-px);
+            }
+
+            .currantly {
+                display: flex;
+                justify-self: center;
+                color: white;
+                border: 1px solid #39ff14;
+                font-size: 32px;
+                font-weight: bold;
+                padding: 10px;
+                margin-top: 30px;
+            }
+
+            .expertise,.work,.exp {
+                margin-top: 700px;
+                padding-top: 290px;
+            }
+
+            .exp {
+                display: grid;
+                justify-content: center;
+                grid-template-columns: repeat(3, 250px);
+                gap: 50px;
+                padding-bottom: 500px;
+            }
+
+            .exp-title {
+                color: #39ff14;
+                padding: 10px;
+            }
+
+            .contact {
+                display: flex;
+                color: white;
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 25px;
+            }
+
+            .contact a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .contact a:hover {
+                color: #39ff14;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+
+            section {
+                scroll-margin-top: -50px;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <section id="home-sect" class="short-cuts">
+
+            <div class="name">Muddathir Samsondien</div>
+            
+            <a href="#home-sect" class="short-cut">//home</a>
+            <a href="#expertise-sect" class="short-cut">//expertise</a>
+            <a href="#work-sect" class="short-cut" style="margin-left: 30px;">//work</a>
+            <a href="#exp-sect" class="short-cut">//experience</a>
+            <a href="#contact-sect" class="short-cut" style="margin-left: 40px;">//contact</a>
+        </section>
+
+
+        <section id="expertise-sect" class="expertise">
+
+            <div class="main-title">
+            My Expertise
+            </div>
+
+            <div class="card">
+                <div class="exp-title">Sofware Development</div>
+                <div class="info">Working with Python and JavaScript</div>
+            </div>
+            <div class="card">
+                <div class="exp-title">Frontend Development</div>
+                <div class="info">Building interfaces with HTML, CSS, and JavaScript</div>
+            </div>
+            <div class="card">
+                <div class="exp-title">Backend (Learning)</div>
+                <div class="info">learning Flask and SQL</div>
+            </div>
+        </section>
+
+        <section id="work-sect" class="work">
+
+            <div class="main-title">
+                <header>Mini-Games</header>
+            </div>
+
+            <div class="mini-game"></div>
+            <div class="mini-game"></div>
+            <div class="mini-game"></div>
+            <div class="mini-game"></div>
+            <div class="mini-game"></div>
+            <div class="mini-game"></div>
+        </section>
+
+        <section id="exp-sect" class="exp"> 
+            <div class="main-title">My Experience</div>
+            <div class="card">
+                <div class="exp-title">Self-Taught Developer -- 2026 Present</div>
+                <ul>
+                    <li>Learned Python, HTML, CSS</li>
+                    <li>Currently learning JavaScript & React</li>
+                    <li>Working on small practice projects</li>
+                </ul>
+            </div>
+            <div class="card">
+                 <div class="exp-title">Technologies Learned</div>
+                <ul>
+                    <li>Python</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul>
+            </div>
+            <div class="card">
+                 <div class="exp-title">Currently Learning</div>
+                <ul>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact-sect" class="contact">
+            <a href="mailto:muddathirsamsodien@gmail.com">
+                Email : muddathirsamsodien@gmail.com
+            </a>
+            <a href="https://github.com/Blaze-XD06">
+                GitHub : https://github.com/Blaze-XD06
+            </a>
+        </section>
+    </body>
+</html>

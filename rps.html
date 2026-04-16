@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rps</title>
+    <style>
+        body {
+            font-family: arial,roboto;
+        }
+    </style>
+</head>
+<body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="play(1);">Rock</button>
+    <button onclick="play(2);">Paper</button>
+    <button onclick="play(3);">Scissors</button>
+
+    <script>
+
+        function play(player) {
+        const robot = Math.floor(Math.random() * 3) + 1;
+
+        if (player == robot) {
+            console.log('Tie');
+        } else if (
+            (player == 1 && robot == 2) 
+            (player == 2 && robot == 3) ||
+            (player == 3 && robot == 1)
+        ) {
+            console.log('you lose')
+        } else {
+            console.log('you win')
+        }
+        }
+    </script>
+</body>
+</html>

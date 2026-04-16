@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Calulator
+        </title>
+        <style>
+            body {
+                font-family: roboto, arial;
+                background-color: black;
+                color: greenyellow;
+            }
+
+            .frame {
+                border: 2px solid greenyellow;
+                margin-left: 350px;
+                width: 500px;
+                height: 650px;
+                margin-top: 150px;
+            }
+
+            .num-holder {
+                border: 2px solid greenyellow;
+                height: 100px;
+                width: 498px;
+                margin-top: 50px;
+            }
+
+            .numbs {
+                display: grid;
+                grid-template-columns: repeat(4, 110px);
+                column-gap: 10px;
+                gap: 12px;
+                color: greenyellow;
+                width: 450px;
+                height: 280px;
+                margin-top: 25px;
+                margin-left: 10px;
+            }
+
+            .num,.math {
+                background-color: black;
+                color: greenyellow;
+                border: 1px solid greenyellow;
+                height: 80px;
+                width: 80px;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+            .num:hover {
+                box-shadow: 0 0 12px greenyellow;
+            }
+
+            .math:hover {
+                box-shadow: 0 0 12px greenyellow;
+            }
+        </style>
+    </head>
+    <body>
+        
+<div class="frame">
+    <div id="console" class="num-holder"></div>
+    <div class="numbs" >
+        <button class="num" onclick="calculation = ''; console.log(calculation);">c</button>
+        <button class="num" onclick="calculation += ' () '; console.log(calculation);">()</button>
+        <button class="num" onclick="calculation += ' / '; console.log(calculation);">÷</button>
+        <button class="num" onclick="calculation += ' % '; console.log(calculation);">%</button>
+        <button class="num" onclick="calculation += '1'; console.log(calculation);">1</button>
+        <button class="num" onclick="calculation += '2'; console.log(calculation);">2</button>
+        <button class="num" onclick="calculation += '3'; console.log(calculation);">3</button>
+        <button class="math" onclick="calculation += ' - '; console.log(calculation);">-</button>
+        <button class="num" onclick="calculation += '4'; console.log(calculation);">4</button>
+        <button class="num" onclick="calculation += '5'; console.log(calculation);">5</button>
+        <button class="num" onclick="calculation += '6'; console.log(calculation);">6</button>
+        <button class="math" onclick="calculation += ' * '; console.log(calculation);">x</button>
+        <button class="num" onclick="calculation += '7'; console.log(calculation);">7</button>
+        <button class="num" onclick="calculation += '8'; console.log(calculation);">8</button>
+        <button class="num" onclick="calculation += '9'; console.log(calculation);">9</button>
+        <button class="math" onclick="calculation += ' + '; console.log(calculation);">+</button>
+        <button class="num" onclick="calculation += '.'; console.log(calculation);">.</button>
+        <button class="num" onclick="calculation += '0'; console.log(calculation);">0</button>
+        <button class="num" onclick="calculation += '.'; console.log(calculation);">T</button>
+        <button class="math" onclick="calculation = eval(calculation); console.log(calculation);">=</button>
+    </div>
+
+        <script>
+            let calculation = '';
+        </script>
+</div>
+    </body>
+</html>
