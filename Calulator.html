@@ -62,30 +62,46 @@
 <div class="frame">
     <div id="console" class="num-holder"></div>
     <div class="numbs" >
-        <button class="num" onclick="calculation = ''; console.log(calculation);">c</button>
-        <button class="num" onclick="calculation += ' () '; console.log(calculation);">()</button>
-        <button class="num" onclick="calculation += ' / '; console.log(calculation);">÷</button>
-        <button class="num" onclick="calculation += ' % '; console.log(calculation);">%</button>
-        <button class="num" onclick="calculation += '1'; console.log(calculation);">1</button>
-        <button class="num" onclick="calculation += '2'; console.log(calculation);">2</button>
-        <button class="num" onclick="calculation += '3'; console.log(calculation);">3</button>
-        <button class="math" onclick="calculation += ' - '; console.log(calculation);">-</button>
-        <button class="num" onclick="calculation += '4'; console.log(calculation);">4</button>
-        <button class="num" onclick="calculation += '5'; console.log(calculation);">5</button>
-        <button class="num" onclick="calculation += '6'; console.log(calculation);">6</button>
-        <button class="math" onclick="calculation += ' * '; console.log(calculation);">x</button>
-        <button class="num" onclick="calculation += '7'; console.log(calculation);">7</button>
-        <button class="num" onclick="calculation += '8'; console.log(calculation);">8</button>
-        <button class="num" onclick="calculation += '9'; console.log(calculation);">9</button>
-        <button class="math" onclick="calculation += ' + '; console.log(calculation);">+</button>
-        <button class="num" onclick="calculation += '.'; console.log(calculation);">.</button>
-        <button class="num" onclick="calculation += '0'; console.log(calculation);">0</button>
-        <button class="num" onclick="calculation += '.'; console.log(calculation);">T</button>
-        <button class="math" onclick="calculation = eval(calculation); console.log(calculation);">=</button>
+        <button class="num" onclick="number('');">C</button>
+        <button class="num" onclick="number(' () ');">()</button>
+        <button class="num" onclick="number(' / ');">÷</button>
+        <button class="num" onclick="number(' % ');">%</button>
+        <button class="num" onclick="number('1');">1</button>
+        <button class="num" onclick="number(2);">2</button>
+        <button class="num" onclick="number(3);">3</button>
+        <button class="math" onclick="number(' - ');">-</button>
+        <button class="num" onclick="number(4);">4</button>
+        <button class="num" onclick="number(5);">5</button>
+        <button class="num" onclick="number(6);">6</button>
+        <button class="math" onclick="number(' * ');">x</button>
+        <button class="num" onclick="number(7);">7</button>
+        <button class="num" onclick="number(8);">8</button>
+        <button class="num" onclick="number(9);">9</button>
+        <button class="math" onclick="number(' + ');">+</button>
+        <button class="num" onclick="number('.');">.</button>
+        <button class="num" onclick="number(0);">0</button>
+        <button class="num" onclick="number('.');">T</button>
+        <button class="math" onclick="number(' = ');">=</button>
     </div>
-
         <script>
-            let calculation = '';
+        let calculation = "";
+
+        function number(num) {
+            if (num === '') {
+                calculation = "";
+            } else if (num === ' = ') {
+                try {
+                    calculation = eval(calculation).toString();
+                } catch {
+                    calculation = "Error";
+                }
+            } else {
+                calculation += num;
+            }
+
+            console.log(calculation);
+            return calculation;
+        }
         </script>
 </div>
     </body>
