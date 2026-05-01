@@ -68,7 +68,12 @@ body {
 }
 
 .mini-game {
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: greenyellow;
+    text-decoration: none;
+    font-size: 24px;
     border: 1px solid #39ff14;
     height: 150px;
     width: 250px;
