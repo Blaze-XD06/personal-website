@@ -93,6 +93,9 @@
             } else if (num === ' = ') {
                 try {
                     calculation = eval(calculation).toString();
+                    console.log(calculation);
+                    calculation = "";
+                    return;
                 } catch {
                     calculation = "Error";
                 }
