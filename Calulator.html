@@ -85,7 +85,9 @@
             </div>
         </div>
         <script>
-        let calculation = "";
+        let calculation = localStorage.getItem('calculation')
+        ? JSON.parse(localStorage.getItem('calculation'))
+        : "";
 
         function number(num) {
             if (num === '') {
@@ -96,15 +98,21 @@
                     console.log(calculation);
                     calculation = "";
                     return;
+                    
                 } catch {
                     calculation = "Error";
+                    console.log(calculation);
+                    calculation = "";
+                    return;
                 }
             } else {
                 calculation += num;
             }
 
+            localStorage.setItem('calculation',JSON.stringify(calculation));
+
             console.log(calculation);
-            return calculation;
+            return;
         }
         </script>
     </body>
