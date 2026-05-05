@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Toss</title>
+    <style>
+        body {
+            background-color: black;
+            color: greenyellow;
+        }
+        
+        header {
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            border: solid 2px greenyellow;
+            border-radius: 10px;
+            background-color: black;
+            color: greenyellow;
+            padding: 10px;
+        }
+
+        button:hover {
+            box-shadow: 0 0 12px greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Coin Toss</h1></header>
+    <main>
+        <button onclick="
+            coinToss('Heads');">Heads</button>
+        <button onclick="
+        coinToss('Tails');">Tails</button>
+        <button onclick="
+        reset();">Reset score</button>
+    </main>
+
+    <script>
+        const result = localStorage.getItem('coinTossResult') ? JSON.parse(localStorage.getItem('coinTossResult')) : {
+            wins:0,
+            losses:0,
+        };
+
+        function coinToss (face) {
+            const pc = Math.random();
+            let choice = '';
+
+            if (pc > 0.5) {
+                choice = 'Heads';
+            } else if (pc < 0.5) {
+                choice = 'Tails';
+            }
+
+            if (face === choice) {
+                result.wins += 1;
+                console.log(`You win! You picked ${face} and the pc choice ${choice}. wins:${result.wins} losses:${result.losses}`);
+            } else {
+                result.losses += 1;
+                console.log(`You lose! You picked ${face} and the pc choice ${choice}. wins:${result.wins} losses:${result.losses}`);
+            }
+            localStorage.setItem('coinTossResult', JSON.stringify(result));
+        }
+
+        function reset () {
+            result = {
+            wins: 0,
+            losses: 0,
+            }
+        };
+    </script>
+</body>
+</html>
