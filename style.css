@@ -35,6 +35,12 @@ body {
     font-weight: bold;
 }
 
+.construction {
+    color: red ;
+    display: flex;
+    justify-content: center;
+}
+
 .expertise {
     display: grid;
     justify-content: center;
