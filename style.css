@@ -36,9 +36,10 @@ body {
 }
 
 .construction {
-    color: red ;
+    color: orange ;
     display: flex;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .expertise {
