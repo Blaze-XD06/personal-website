@@ -15,16 +15,17 @@ body {
     margin: 0 40px;
 }
 
+.auto-scroll {
+    display: flex;
+    width: 600px;
+    justify-content: space-around;
+}
+
 .short-cut {
     color: white;
     text-decoration: none;
-    width: 100px;
-    height: 20px;
 }
 
-.auto-scroll {
-    display: flex;
-}
 
 .main-title {
     grid-column: 1 / -1;
