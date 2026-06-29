@@ -92,7 +92,7 @@ body {
 
 .mini-game:hover {
     box-shadow: 0 0 12px #39ff14;
-    transform: translateY(5-px);
+    transform: translateY(-5px);
 }
 
 .currantly {
