@@ -115,7 +115,7 @@ body {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(3, 250px);
-    gap: 50px;
+    gap: clamp(15px, 4vw, 50px);
     padding-bottom: 500px;
 }
 
