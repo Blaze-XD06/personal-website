@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmazonCalc</title>
+    <style>
+        body {
+            background-color: black;
+            color: greenyellow;
+        }
+
+        .shipping-info {
+            text-align: center;
+            width: 500px;
+            margin: 0px auto;
+        }
+        
+        .num-input {
+            background-color: black;
+            border-color: greenyellow;
+            color: greenyellow;
+        }
+
+        .calculate {
+            border-color: greenyellow;
+            background-color: black;
+            color: greenyellow;
+            border-radius: 10px;
+            padding: 2px;
+        }
+
+        .calcEnd {
+            color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <section class="shipping-info">
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <input class="num-input" type="text">
+        <button onclick="calc();" class="calculate">Calculate</button>
+        <p class="shipping"></p>
+    </section>
+
+    <script> 
+        const shippingElement = document.querySelector('.shipping');
+
+        function calc () {
+
+            const costElement = document.querySelector('.num-input');
+            const cost = Number(costElement.value)
+
+            if (cost >= 40) {
+                shippingElement.innerText = 'Free';
+            } else if (cost <= 40) {
+                shippingElement.innerText = cost + 10;
+            } else {
+                shippingElement.innerText = "Invalid Text"
+            }
+        } 
+    </script>
+</body>
+</html>
