@@ -25,6 +25,7 @@
                 height: 100px;
                 width: 500px;
                 margin-top: 50px;
+                font-size: 50px;
             }
 
             .numbs {
@@ -88,13 +89,15 @@
         <script>
         let calculation = "";
 
+        let jsCalcNumbs = document.querySelector('.num-holder');
+
         function number(num) {
             if (num === '') {
                 calculation = "";
             } else if (num === ' = ') {
                 try {
                     calculation = eval(calculation).toString();
-                    console.log(calculation);
+                    jsCalcNumbs.innerHTML = calculation;
                     calculation = "";
                     return;
                     
@@ -108,7 +111,7 @@
                 calculation += num;
             }
 
-            console.log(calculation);
+            jsCalcNumbs.innerHTML = calculation;
             return;
         }
         </script>
