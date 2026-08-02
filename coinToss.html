@@ -34,6 +34,14 @@
         button:hover {
             box-shadow: 0 0 12px greenyellow;
         }
+
+        .js-score {
+            display: flex;
+            height: 200px;
+            width: 250px;
+            border: solid 2px greenyellow;
+            margin: 30px auto;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +55,12 @@
         reset();">Reset score</button>
     </main>
 
+    <div class="js-score">
+        <p class="js-wins"></p>
+        <p class="js-losses"></p>
+        <p class="js-outcome"></p>
+    </div>
+
     <script>
         const result = localStorage.getItem('coinTossResult') ? JSON.parse(localStorage.getItem('coinTossResult')) : {
             wins:0,
@@ -57,6 +71,10 @@
             const pc = Math.random();
             let choice = '';
 
+            const jsWins = document.querySelector('js-wins');
+            const jsLosses = document.querySelector('js-losses');
+            const jsOutcome = document.querySelector('js-Outcome');
+
             if (pc > 0.5) {
                 choice = 'Heads';
             } else if (pc < 0.5) {
@@ -65,12 +83,16 @@
 
             if (face === choice) {
                 result.wins += 1;
-                console.log(`You win! You picked ${face} and the pc choice ${choice}. wins:${result.wins} losses:${result.losses}`);
             } else {
                 result.losses += 1;
-                console.log(`You lose! You picked ${face} and the pc choice ${choice}. wins:${result.wins} losses:${result.losses}`);
             }
+
+            jsWins.innerHTML = result.wins;
+            jsLosses.innerHTML = result.losses; 
+            jsOutcome.innerHTML = `You choice ${choice} and Pc choice ${pc} `; 
+
             localStorage.setItem('coinTossResult', JSON.stringify(result));
+
         }
 
         function reset () {
