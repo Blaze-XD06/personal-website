@@ -45,6 +45,10 @@
                 color: greenyellow;
                 margin: 0px auto;
             }
+
+            .js-result {
+                height: 20px;
+            }
         </style>
     </head>
     <body>
@@ -77,6 +81,8 @@
                 score.ties = 0;
                 localStorage.removeItem('score');
                 updateScoreElement();
+                document.querySelector('.js-result').innerHTML = '';
+                document.querySelector('.js-moves').innerHTML = 'Waiting for a move';
                 ">Reset Score</button>
             </div>
 
@@ -85,7 +91,7 @@
         <section>
             <p class="js-score"></p>
             <p class="js-moves">Waiting for move</p>
-            <p class="js-result">.</p>
+            <p class="js-result"></p>
         </section>
  
         
