@@ -37,7 +37,7 @@
 
         .js-score {
             height: 100px;
-            width: 250px;
+            width: 300.5px;
             border: solid 2px greenyellow;
             margin: 10px auto;
         }
@@ -45,7 +45,7 @@
         .js-wins,.js-losses,.js-outcome {
             margin: 0px;
             border: solid 2px greenyellow;
-            width: 250px;
+            width: 300px;
             height: 30px;
         } 
     </style>
@@ -73,29 +73,29 @@
             losses:0,
         };
 
+        const wins = document.querySelector('.js-wins');
+        const losses = document.querySelector('.js-losses');
+        const outcome = document.querySelector('.js-outcome');
+
         function coinToss (face) {
             const pc = Math.random();
-            let choice = '';
-
-            const jsWins = document.querySelector('js-wins');
-            const jsLosses = document.querySelector('js-losses');
-            const jsOutcome = document.querySelector('js-Outcome');
+            let pcHead = '';
 
             if (pc > 0.5) {
-                choice = 'Heads';
+                pcHead = 'Heads';
             } else if (pc < 0.5) {
-                choice = 'Tails';
+                pcHead = 'Tails';
             }
 
-            if (face === choice) {
+            if (face === pcHead) {
                 result.wins += 1;
             } else {
                 result.losses += 1;
             }
 
-            jsWins.innerHTML = result.wins;
-            jsLosses.innerHTML = result.losses; 
-            jsOutcome.innerHTML = `You choice ${choice} and Pc choice ${pc} `; 
+            wins.innerHTML = result.wins;
+            losses.innerHTML = result.losses;
+            outcome.innerHTML = `You choice ${face} and pc choice ${pcHead}`;
 
             localStorage.setItem('coinTossResult', JSON.stringify(result));
 
@@ -103,8 +103,10 @@
 
         function reset () {
             result.wins = 0;
+            wins.innerHTML = '0';
             result.losses = 0;
-            console.log(`Score reset. wins:${result.wins} losses:${result.losses}`);
+            losses.innerHTML = '0';
+            outcome.innerHTML = `Score reset wins:${result.wins} losses:${result.losses}`;
         }
     </script>
 </body>
