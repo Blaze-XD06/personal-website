@@ -7,18 +7,25 @@
     <style>
         body {
             font-family: arial;
-            background-color: black;
+            background-color: #090909;
             color: greenyellow;
         }
         
         header {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
+            background-color: black;
+        }
+
+        .home-link {
+            color: greenyellow;
+            text-decoration: none;
         }
 
         main {
             display: flex;
             justify-content: center;
+            margin-top: 100px;
         }
 
         button {
@@ -39,21 +46,27 @@
 
         .js-score {
             height: 100px;
-            width: 300.5px;
-            border: solid 2px greenyellow;
+            width: 300px;
             margin: 10px auto;
         }
 
         .js-wins,.js-losses,.js-outcome {
+            height: 28px;
+            width: 300px;
+            padding-top: 7px;
+            padding-left: 5px;
             margin: 0px;
             border: solid 2px greenyellow;
-            width: 300px;
-            height: 30px;
+            
         } 
     </style>
 </head>
 <body>
-    <header><h1>Coin Toss</h1></header>
+    <header>
+        <a href=""></a>
+        <h1>Coin Toss</h1>
+        <a href="index.html" class="home-link">Home</a>
+    </header>
     <main>
         <button onclick="
             coinToss('Heads');">Heads</button>
@@ -95,8 +108,8 @@
                 result.losses += 1;
             }
 
-            wins.innerHTML = result.wins;
-            losses.innerHTML = result.losses;
+            wins.innerHTML = `Wins: ${result.wins}`;
+            losses.innerHTML = `Losses: ${result.losses}`;
             outcome.innerHTML = `You choice ${face} and pc choice ${pcHead}`;
 
             localStorage.setItem('coinTossResult', JSON.stringify(result));
