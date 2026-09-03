@@ -1,129 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coin Toss</title>
-    <style>
-        body {
-            font-family: arial;
-            background-color: #090909;
-            color: greenyellow;
-        }
-        
-        header {
-            display: flex;
-            justify-content: space-around;
-            background-color: black;
-        }
-
-        .home-link {
-            color: greenyellow;
-            text-decoration: none;
-            padding-top: 25px;
-        }
-
-        main {
-            display: flex;
-            justify-content: center;
-            margin-top: 100px;
-        }
-
-        button {
-            font-size: 15px;
-            display: flex;
-            justify-content: center;
-            border: solid 2px greenyellow;
-            border-radius: 10px;
-            background-color: black;
-            color: greenyellow;
-            padding: 10px;
-            margin-left: 10px;
-        }
-
-        button:hover {
-            box-shadow: 0 0 12px greenyellow;
-        }
-
-        .js-score {
-            height: 100px;
-            width: 300px;
-            margin: 10px auto;
-        }
-
-        .js-wins,.js-losses,.js-outcome {
-            height: 28px;
-            width: 300px;
-            padding-top: 7px;
-            padding-left: 5px;
-            margin: 0px;
-            border: solid 2px greenyellow;
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CoinToss</title>
+        <link rel="stylesheet" href="css/generalstyles.css">
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            body {
+                color: greenyellow;
+            }
             
-        } 
-    </style>
-</head>
-<body>
-    <header>
-        <a href=""></a>
-        <h1>Coin Toss</h1>
-        <a href="index.html" class="home-link">Home</a>
-    </header>
-    <main>
-        <button onclick="
-            coinToss('Heads');">Heads</button>
-        <button onclick="
-        coinToss('Tails');">Tails</button>
-        <button onclick="
-        reset();">Reset score</button>
-    </main>
-
-    <div class="js-score">
-        <p class="js-wins"></p>
-        <p class="js-losses"></p>
-        <p class="js-outcome"></p>
-    </div>
-
-    <script>
-        const result = localStorage.getItem('coinTossResult') ? JSON.parse(localStorage.getItem('coinTossResult')) : {
-            wins:0,
-            losses:0,
-        };
-
-        const wins = document.querySelector('.js-wins');
-        const losses = document.querySelector('.js-losses');
-        const outcome = document.querySelector('.js-outcome');
-
-        function coinToss (face) {
-            const pc = Math.random();
-            let pcHead = '';
-
-            if (pc > 0.5) {
-                pcHead = 'Heads';
-            } else if (pc < 0.5) {
-                pcHead = 'Tails';
+            main {
+                display: flex;
+                justify-content: center;
+                margin-top: 100px;
             }
 
-            if (face === pcHead) {
-                result.wins += 1;
-            } else {
-                result.losses += 1;
+            button {
+                font-size: 15px;
+                display: flex;
+                justify-content: center;
+                border: solid 2px greenyellow;
+                border-radius: 10px;
+                background-color: black;
+                color: greenyellow;
+                padding: 10px;
+                margin-left: 10px;
             }
 
-            wins.innerHTML = `Wins: ${result.wins}`;
-            losses.innerHTML = `Losses: ${result.losses}`;
-            outcome.innerHTML = `You choice ${face} and pc choice ${pcHead}`;
+            button:hover {
+                box-shadow: 0 0 12px greenyellow;
+            }
 
-            localStorage.setItem('coinTossResult', JSON.stringify(result));
+            .js-score {
+                height: 100px;
+                width: 300px;
+                margin: 10px auto;
+            }
 
-        }
+            .js-wins,.js-losses,.js-outcome {
+                height: 28px;
+                width: 300px;
+                padding-top: 7px;
+                padding-left: 5px;
+                margin: 0px;
+                border: solid 2px greenyellow;
+                
+            } 
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Coin Toss</h1>
+            <a href="index.html" class="home-link">Home</a>
+        </header>
+        <main>
+            <button onclick="
+                coinToss('Heads');">Heads</button>
+            <button onclick="
+            coinToss('Tails');">Tails</button>
+            <button onclick="
+            reset();">Reset score</button>
+        </main>
 
-        function reset () {
-            result.wins = 0;
-            wins.innerHTML = '0';
-            result.losses = 0;
-            losses.innerHTML = '0';
-            outcome.innerHTML = `Score reset wins:${result.wins} losses:${result.losses}`;
-        }
-    </script>
-</body>
+        <div class="js-score">
+            <p class="js-wins"></p>
+            <p class="js-losses"></p>
+            <p class="js-outcome"></p>
+        </div>
+
+        <script>
+            const result = localStorage.getItem('coinTossResult') ? JSON.parse(localStorage.getItem('coinTossResult')) : {
+                wins:0,
+                losses:0,
+            };
+
+            const wins = document.querySelector('.js-wins');
+            const losses = document.querySelector('.js-losses');
+            const outcome = document.querySelector('.js-outcome');
+
+            function coinToss (face) {
+                const pc = Math.random();
+                let pcHead = '';
+
+                if (pc > 0.5) {
+                    pcHead = 'Heads';
+                } else if (pc < 0.5) {
+                    pcHead = 'Tails';
+                }
+
+                if (face === pcHead) {
+                    result.wins += 1;
+                } else {
+                    result.losses += 1;
+                }
+
+                wins.innerHTML = `Wins: ${result.wins}`;
+                losses.innerHTML = `Losses: ${result.losses}`;
+                outcome.innerHTML = `You choice ${face} and pc choice ${pcHead}`;
+
+                localStorage.setItem('coinTossResult', JSON.stringify(result));
+
+            }
+
+            function reset () {
+                result.wins = 0;
+                wins.innerHTML = '0';
+                result.losses = 0;
+                losses.innerHTML = '0';
+                outcome.innerHTML = `Score reset wins:${result.wins} losses:${result.losses}`;
+            }
+        </script>
+    </body>
 </html>
